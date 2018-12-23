@@ -1,6 +1,7 @@
 package com.springboot.chapter6.controller;
 
 import com.springboot.chapter6.pojo.User;
+import com.springboot.chapter6.service.UserBatchService;
 import com.springboot.chapter6.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,8 @@ public class UserController {
     @ResponseBody
     public Map<String, Object> insertUser(String userName, String note) {
         /*
-        * 插入的时候不需要手动设置主键id
-        * */
+         * 插入的时候不需要手动设置主键id
+         * */
         User user = new User();
         user.setUserName(userName);
         user.setNote(note);
