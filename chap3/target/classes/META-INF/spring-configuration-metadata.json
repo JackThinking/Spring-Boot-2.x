@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "database",
+      "type": "com.springboot.chapter3.pojo.DataBaseProperties",
+      "sourceType": "com.springboot.chapter3.pojo.DataBaseProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "database.driver-name",
+      "type": "java.lang.String",
+      "sourceType": "com.springboot.chapter3.pojo.DataBaseProperties"
+    },
+    {
+      "name": "database.password",
+      "type": "java.lang.String",
+      "sourceType": "com.springboot.chapter3.pojo.DataBaseProperties"
+    },
+    {
+      "name": "database.url",
+      "type": "java.lang.String",
+      "sourceType": "com.springboot.chapter3.pojo.DataBaseProperties"
+    },
+    {
+      "name": "database.username",
+      "type": "java.lang.String",
+      "sourceType": "com.springboot.chapter3.pojo.DataBaseProperties"
+    }
+  ],
+  "hints": []
+}
