@@ -4,6 +4,7 @@ import com.springboot.chapter13.service.ActiveMqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.JmsListener;
+import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class ActiveMqServiceImpl implements ActiveMqService {
 
     // 注入由Spring Boot自动生产的jmsTemplate
     @Autowired
-    private JmsTemplate jmsTemplate = null;
+    private JmsMessagingTemplate jmsMessagingTemplate = null;
 
     @Value("${spring.jms.template.default-destination}")
     private String defaultDestination = null;
@@ -23,7 +24,7 @@ public class ActiveMqServiceImpl implements ActiveMqService {
     @Override
     public void sendMsg(String message) {
         System.out.println("发送消息【" + message + "】");
-        jmsTemplate.convertAndSend(message);
+        jmsMessagingTemplate.convertAndSend(message);
         // 自定义发送地址
         // jmsTemplate.convertAndSend("your-destination", message);
     }

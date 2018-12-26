@@ -4,7 +4,7 @@ import com.springboot.chapter13.pojo.User;
 import com.springboot.chapter13.service.ActiveMqUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
-import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class ActiveMqUserServiceImpl implements ActiveMqUserService {
 
     @Autowired
-    private JmsTemplate jmsTemplate = null;
+    private JmsMessagingTemplate jmsMessagingTemplate = null;
 
     // 自定义地址
     private static final String myDestination = "my-destination";
@@ -23,7 +23,7 @@ public class ActiveMqUserServiceImpl implements ActiveMqUserService {
     public void sendUser(User user) {
         System.out.println("发送消息【" + user + "】");
         // 使用自定义地址发送对象
-        jmsTemplate.convertAndSend(myDestination, user);
+        jmsMessagingTemplate.convertAndSend(myDestination, user);
     }
 
     @Override
